@@ -1,0 +1,6 @@
+1)Class-Player // main player(-s) class
+2)Class-Bot  // bot class
+3)Class-Unit // in-game units class
+4)Class-Buildings // in-game buildings class
+5)Class-Resources // in-game resources class
+6)Class-Events // Randomly generated in-game events class
