@@ -4,3 +4,4 @@
 4)Class-Buildings // in-game buildings class
 5)Class-Resources // in-game resources class
 6)Class-Events // Randomly generated in-game events class
+7)Class-Game_class// in-game methods class,connected with game process
