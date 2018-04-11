@@ -26,48 +26,37 @@ public class GameClass {
             switch(command) {
 
                 case "":
-
                     System.out.println("Empty text.Try again.");
-
                 case "/rules": {
-
-                        System.out.println("Write (/create game) to create game field ");
-                        System.out.println("If you want to end game write(/end game)");
-                        System.out.println("if you want to begin tutorial write (/start tutorial)");
-                        System.out.println("if you want to exit game press cross in the upper right conner or write(/exit game)");
+                    System.out.println("Write (/create game) to create game field ");
+                    System.out.println("If you want to end game write(/end game)");
+                    System.out.println("if you want to begin tutorial write (/start tutorial)");
+                    System.out.println("if you want to exit game press cross in the upper right conner or write(/exit game)");
                     }
 
                 case "/create game": {
-
-                        Object Game = new Object();
-                        System.out.println("Game has been created.");
-                        command = input.nextLine();
+                    Object Game = new Object();
+                    System.out.println("Game has been created.");
+                    command = input.nextLine();
                     }
 
                 case "/start tutorial": {
-
-                        Object GameTutorial = new Object();
-                        System.out.println("Tutorial has been created.");
-                        command = input.nextLine();
+                    Object GameTutorial = new Object();
+                    System.out.println("Tutorial has been created.");
+                    command = input.nextLine();
                     }
 
                 case "/exit game":    {
-
-                        System.out.println("Do really want to exit the game?(write (/yes)or(/no))");
-                        command = input.nextLine();
-                        switch (command){
-                            case "/yes":
-                                System.exit(0);
-                            case "/no":
-                                break;
-                        }
-
+                    System.out.println("Do really want to exit the game?(write (/yes)or(/no))");
+                    command = input.nextLine();
+                    switch (command){
+                        case "/yes":
+                            System.exit(0);
+                        case "/no" :
+                            break;
                     }
+                }
             }
         }
-
-
-
-
     }
 }
