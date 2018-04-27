@@ -5,10 +5,66 @@ import java.util.Scanner;
 
 public class GameClass {
 
-    static String command;
-    private static int a=1;
+    static String commandString;
+    static int commandNum;
+    static int programCicle = 1;
+    static int  gameCicle = 0;
+    static int playerCount = 0;
+    static int globalCicle = 1;
 
-    public static void main(String[]args) {
+    static String checkString(String commandString) {
+
+        String stringAnswer;
+        stringAnswer = null;
+        Scanner input = new Scanner(System.in);
+
+        switch (commandString) {
+
+            case "":
+                stringAnswer = "Empty text.Try again.";
+                break;
+            case "/rules": {
+                stringAnswer = "Write (/create game) to create game field " + "\n" +
+                        "If you want to end game write(/end game)" + "\n" +
+                        "if you want to exit game press cross in the upper right conner or write(/exit game)";
+                break;
+            }
+
+            case "/create game": {
+                stringAnswer="Game has been created.";
+                System.out.println("Write number bigger then 1 and less then 4.")   ;
+                commandNum=input.nextInt();
+                checkNum(commandNum);
+                gameCicle=1;
+                break;
+            }
+
+            case "/exit game": {
+                stringAnswer = "Do really want to exit the game?(write (/yes)or(/no))";
+                commandString = input.nextLine();
+                if (commandString.equals("/yes")) {
+                    programCicle = 0;
+                }
+                break;
+            }
+
+            default: {
+                stringAnswer = "Unknown command.Try again.";
+            }
+        }
+        return stringAnswer;
+    }
+
+    static int checkNum(int commandNum){
+        int numAnswer;
+
+        Scanner input = new Scanner(System.in);
+        numAnswer=commandNum;
+        System.out.println("There "+commandNum+" players.");
+        return numAnswer;
+    }
+
+    public static void main(String[] args) {
 
         System.out.println("Hello!");
         System.out.println("Welcome to my first game.");
@@ -18,46 +74,11 @@ public class GameClass {
 
         Scanner input = new Scanner(System.in);
 
-        while (a == 1) {
-            command = input.nextLine();
-
-            switch(command) {
-
-                case "":
-                    System.out.println("Empty text.Try again.");
-                    break;
-                case "/rules": {
-                    System.out.println("Write (/create game) to create game field ");
-                    System.out.println("If you want to end game write(/end game)");
-                    System.out.println("if you want to begin tutorial write (/start tutorial)");
-                    System.out.println("if you want to exit game press cross in the upper right conner or write(/exit game)");
-                    break;
-                }
-
-                case "/create game": {
-                    Object Game = new Object();
-                    System.out.println("Game has been created.");
-                    break;
-                }
-
-                case "/start tutorial": {
-                    Object GameTutorial = new Object();
-                    System.out.println("Tutorial has been created.");
-                    break;
-                }
-
-                case "/exit game": {
-                    System.out.println("Do really want to exit the game?(write (/yes)or(/no))");
-                    command = input.nextLine();
-                    if (command.equals("/yes")) {
-                        a = 0;
-                    }
-                    break;
-                }
-
-                default: {
-                    System.out.println("Unknown command.Try again.");
-                }
+        while (programCicle == 1) {
+            commandString = input.nextLine();
+            System.out.println(checkString(commandString));
+            while (gameCicle == 1){
+                System.exit(0);
             }
         }
         System.out.println("See you later.");
